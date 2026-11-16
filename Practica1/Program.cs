@@ -81,9 +81,9 @@ namespace Practica1
                 }
                 set
                 {
-                if (value < 0)
+                if (value <= 0)
                     {
-                        Console.WriteLine("La cantidad no puede ser negativa!!");
+                        Console.WriteLine("La cantidad no puede ser negativa o cero!!");
                     }
                     else
                     {
