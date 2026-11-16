@@ -15,7 +15,7 @@ namespace Practica1
                 Console.Write("Ingresa el codigo del producto:");
                 int n1 = Convert.ToInt32(Console.ReadLine());
 
-                Console.Write("Ingresa el nombre del producto: ");
+                Console.Write("Ingresa el nombre del producto:");
                 string nm = Console.ReadLine();
 
                 Console.Write("Ingresa el precio del producto:");
@@ -24,7 +24,7 @@ namespace Practica1
                 Console.Write("Ingresa la cantidad en stock:");
                 int n4 = Convert.ToInt32(Console.ReadLine());
 
-                Producto total5 = new Producto(n1, nm, n3, n4); 
+                Producto total5 = new Producto(n1, nm, n3, n4); // Este es el objeto creado al cual se le atribuiran los parametros mediante variables creadas para almacenar los datos que se introdujeron con el teclado
                 total5.MostrarInfo(); 
             }
             
@@ -45,7 +45,7 @@ namespace Practica1
                 }
                 set
                 {
-                    if (string.IsNullOrWhiteSpace(value)) // valida si el valor es null o un espacio en blanco
+                    if (string.IsNullOrWhiteSpace(value)) // valida si datos de tipo string son null o un espacio en blanco referente al valor de la propiedad
                     {
                         Console.WriteLine("No puede estar vacio la propiedad Nombre!!!");
                     }
@@ -63,7 +63,7 @@ namespace Practica1
                 }
                 set
                 {
-                    if (_precio <= 0)
+                    if (value <= 0)
                     {
                         Console.WriteLine("El precio no puede ser igual o menor que cero...");
                     }
@@ -95,12 +95,12 @@ namespace Practica1
         public double ValorTotal
             { get
                 {
-                    return Precio * Cantidad;
+                    return Precio * Cantidad; // Devolvera el valor de solo lectura Precio*Cantidad
                 }
 
             }
 
-        public Producto(int codigo, string nombre, double precio, int cantidad)
+        public Producto(int codigo, string nombre, double precio, int cantidad) // Este es el constructor que inicializara las propiedades
             {
                 Codigo = codigo;
                 Nombre = nombre;
@@ -109,7 +109,7 @@ namespace Practica1
             }
 
 
-            public void MostrarInfo()
+            public void MostrarInfo() // Este metodo imprimira los datos del producto 
             {
                 Console.WriteLine("===================");
                 Console.WriteLine("DATOS DEL PRODUCTO");
@@ -118,7 +118,7 @@ namespace Practica1
                 Console.WriteLine($"Nombre: {_nombre}");
                 Console.WriteLine($"Precio: {_precio}");
                 Console.WriteLine($"Cantidad: {_cantidad}");
-                Console.WriteLine($"Total: {ValorTotal}");
+                Console.WriteLine($"Total: ${ValorTotal}");
             }
 
 
